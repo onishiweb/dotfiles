@@ -3,10 +3,6 @@ TZ="Europe/London"
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Load NVM
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
-
 # Set name of the theme to load.
 ZSH_THEME="simple"
 
@@ -17,7 +13,7 @@ export EDITOR='subl'
 export UPDATE_ZSH_DAYS=5
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(git npm terminalapp tig web-search)
+plugins=(git zsh-nvm npm terminalapp tig web-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -30,3 +26,30 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # execute locally installed npm modules
 export PATH="./node_modules/.bin:$PATH"
+
+# place this after nvm initialization!
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" != "N/A" ] && [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use 
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
+
+# Aliases
+alias o-install="obt install"
+alias o-build="obt build"
+alias o-demo="obt demo --runServer --watch"
+alias local-server="python -m SimpleHTTPServer"```
