@@ -52,4 +52,4 @@ load-nvmrc
 alias o-install="obt install"
 alias o-build="obt build"
 alias o-demo="obt demo --runServer --watch"
-alias local-server="python -m SimpleHTTPServer"```
+alias local-server="python -m SimpleHTTPServer"
