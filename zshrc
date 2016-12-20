@@ -49,7 +49,24 @@ load-nvmrc
 
 
 # Aliases
+
+# Origami
 alias o-install="obt install"
 alias o-build="obt build"
 alias o-demo="obt demo --runServer --watch"
+
+# Web Server
 alias local-server="python -m SimpleHTTPServer"
+
+# Virtual Hosts
+alias vhosts="subl /usr/local/etc/apache2/2.4/extra/httpd-vhosts.conf"
+
+# Apache
+alias aprestart="sudo apachectl -k restart"
+alias apstart="sudo apachectl start"
+alias apstop="sudo apachectl stop"
+
+# MySQL
+alias dbstart="mysql.server start"
+alias dbstop="mysql.server stop"
+
