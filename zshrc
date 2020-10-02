@@ -37,7 +37,7 @@ load-nvmrc() {
     local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
 
     if [ "$nvmrc_node_version" != "N/A" ] && [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use 
+      nvm use
     fi
   elif [ "$node_version" != "$(nvm version default)" ]; then
     echo "Reverting to nvm default version"
@@ -47,19 +47,16 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
-
 # Aliases
 
-# Origami
-alias o-install="obt install"
-alias o-build="obt build"
-alias o-demo="obt demo --runServer --watch"
+# Yarn
+alias yarn-linked="( ls -l node_modules ; ls -l node_modules/@kano/* ) | grep ^l"
 
 # Web Server
 alias local-server="python -m SimpleHTTPServer"
 
 # Virtual Hosts
-alias vhosts="subl /usr/local/etc/apache2/2.4/extra/httpd-vhosts.conf"
+alias vhosts="subl /usr/local/etc/httpd/extra/httpd-vhosts.conf"
 
 # Apache
 alias aprestart="sudo apachectl -k restart"
@@ -70,3 +67,4 @@ alias apstop="sudo apachectl stop"
 alias dbstart="mysql.server start"
 alias dbstop="mysql.server stop"
 
+export PATH="/usr/local/sbin:$PATH"

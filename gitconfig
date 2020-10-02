@@ -3,3 +3,5 @@
 [user]
 	name = Adam Onishi
 	email = onishiweb@gmail.com
+[core]
+	editor = vim
