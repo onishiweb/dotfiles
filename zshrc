@@ -68,3 +68,6 @@ alias dbstart="mysql.server start"
 alias dbstop="mysql.server stop"
 
 export PATH="/usr/local/sbin:$PATH"
+
+# Github token for Kano installs
+export GITHUB_TOKEN="831b1f22d59e5423f2c2cf2916a6e8751404518c"
