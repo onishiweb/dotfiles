@@ -23,6 +23,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="$HOME/.bin:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH=~/Library/Python/3.9/bin:$PATH
 
 # execute locally installed npm modules
 export PATH="./node_modules/.bin:$PATH"
@@ -67,4 +68,12 @@ alias apstop="sudo apachectl stop"
 alias dbstart="mysql.server start"
 alias dbstop="mysql.server stop"
 
+# Python
+alias python=python3
+
 export PATH="/usr/local/sbin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+eval "$(/opt/homebrew/bin/brew shellenv)"
