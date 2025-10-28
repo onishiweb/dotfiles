@@ -7,15 +7,29 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="simple"
 
 # Editor
-export EDITOR='code'
+export EDITOR='cursor'
 
 # Uncomment the following line to change how often to auto-update (in days).
 export UPDATE_ZSH_DAYS=5
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(git zsh-nvm npm tig web-search)
+plugins=(
+  git 
+  nvm 
+  npm 
+  tig 
+  web-search 
+  1password 
+  brew 
+  zsh-autosuggestions
+  iterm2 
+  zsh-syntax-highlighting 
+  zsh-completions
+  you-should-use
+)
 
 source $ZSH/oh-my-zsh.sh
+
 
 # User configuration
 
